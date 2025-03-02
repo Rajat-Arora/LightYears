@@ -32,10 +32,34 @@ namespace ly
             if(_elapsedTime > _targetDeltaTime)
             {
                 _elapsedTime-=_targetDeltaTime;
-                this->Tick(_targetDeltaTime);
+                this->TickInternal(_targetDeltaTime);
+                this->RenderInternal();
             }
 
         }
+    }
+
+    void Application::TickInternal(float delta_time)
+    {
+        this->Tick(delta_time);
+    }
+
+    void Application::RenderInternal()
+    {
+        mWindow.clear();
+        this->Render();
+        mWindow.display();
+
+    }
+
+    void Application::Render()
+    {
+        sf::CircleShape rect{50};
+        rect.setFillColor(sf::Color::Green);
+        rect.setOrigin(25,25);
+        rect.setPosition(mWindow.getSize().x/2.f, mWindow.getSize().y/2.f);
+        mWindow.draw(rect);
+
     }
 
     void Application::Tick(float delta_time)
@@ -43,9 +67,4 @@ namespace ly
         std::cout << "Ticking at Frane Rate: "<< 1.f/delta_time<< "\n";
     }
 
-    void Application::Render()
-    {
-        
-    }
-
-}
+};

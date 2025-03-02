@@ -33,7 +33,9 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(${SFML_LIB_NAME})
 
 #Creates a variable: Var_Name Var_Value
-set(LIGHT_YEARS_GAME_TATRGET_NAME LightYearsGame)
+set(LIGHT_YEARS_ENGINE_TARGET_NAME LightYearsEngine)
+set(LIGHT_YEARS_GAME_TARGET_NAME LightYearsGame)
 
 #Add directory LightYears relative to this file
-add_subdirectory(LightYears)
+add_subdirectory(LightYearsEngine)
+add_subdirectory(LightYearsGame)
