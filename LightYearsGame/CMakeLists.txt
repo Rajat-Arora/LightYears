@@ -22,3 +22,8 @@ add_custom_command(
     ${RESOURCE_SRC_DIR}
     $<TARGET_FILE_DIR:${LIGHT_YEARS_GAME_TARGET_NAME}>/${RESOURCE_FOLDER_NAME}
 )
+
+configure_file(
+    "config.h.in"
+    "${CMAKE_CURRENT_SOURCE_DIR}/include/config.h" ESCAPE_QUOTES
+)
