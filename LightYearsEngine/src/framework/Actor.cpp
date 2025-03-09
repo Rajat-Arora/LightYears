@@ -44,11 +44,16 @@ namespace ly
 
     void Actor::SetTexture(const std::string& texturePath)
     {
-        mTexture.loadFromFile(texturePath);
-        mSprite.setTexture(mTexture);
+        AssetManager& assetManager = AssetManager::Get();
+        
+        mTexture = assetManager.LoadTexture(texturePath);
 
-        int textureWidth = mTexture.getSize().x;
-        int textureHeight = mTexture.getSize().y;
+        if(!mTexture) return;
+        
+        mSprite.setTexture(*mTexture);
+
+        int textureWidth = mTexture->getSize().x;
+        int textureHeight = mTexture->getSize().y;
 
         mSprite.setTextureRect(sf::IntRect{sf::Vector2i{}, sf::Vector2i{textureWidth, textureHeight}});
     }

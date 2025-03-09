@@ -2,6 +2,7 @@
 #include "framework/Object.h"
 #include <SFML/Graphics.hpp>
 #include "framework/Core.h"
+#include "framework/AssetManager.h"
 
 namespace ly
 {
@@ -16,7 +17,7 @@ namespace ly
         bool mHasBeganPlay;
 
         sf::Sprite mSprite;
-        sf::Texture mTexture;
+        shared<sf::Texture> mTexture;
 
     public:
         Actor(World* owningWorld, const std::string& texturePath = "");

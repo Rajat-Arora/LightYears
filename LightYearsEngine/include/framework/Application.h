@@ -33,7 +33,8 @@ namespace ly
 
         //Store current world, used to call World Internal Functions
         shared<World> mCurrentWorld;
-
+        sf::Clock mCleanCycleClock;
+        float mCleanCycleInterval;
 
 
     };
