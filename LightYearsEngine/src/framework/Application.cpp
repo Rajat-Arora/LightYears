@@ -1,11 +1,13 @@
 #include "framework/Application.h"
+#include "framework/World.h"
 
 namespace ly
 {
-    Application::Application()
-        : mWindow{sf::VideoMode(1024, 1440), "Light Years"},
+    Application::Application(unsigned int windowWidth, unsigned int windowHeight, const std::string& title, sf::Uint32 style)
+        : mWindow{sf::VideoMode(windowWidth, windowHeight), title, style},
         mTargetFrameRate{60.f},
-        mTickClock{}
+        mTickClock{},
+        mCurrentWorld{nullptr}
     {
 
     }
@@ -42,6 +44,11 @@ namespace ly
     void Application::TickInternal(float delta_time)
     {
         this->Tick(delta_time);
+        if(mCurrentWorld)
+        {
+            mCurrentWorld->BeginPlayInternal();
+            mCurrentWorld->TickInternal(delta_time);
+        }
     }
 
     void Application::RenderInternal()
@@ -54,17 +61,22 @@ namespace ly
 
     void Application::Render()
     {
-        sf::CircleShape rect{50};
-        rect.setFillColor(sf::Color::Green);
-        rect.setOrigin(25,25);
-        rect.setPosition(mWindow.getSize().x/2.f, mWindow.getSize().y/2.f);
-        mWindow.draw(rect);
+        // sf::CircleShape rect{50};
+        // rect.setFillColor(sf::Color::Green);
+        // rect.setOrigin(25,25);
+        // rect.setPosition(mWindow.getSize().x/2.f, mWindow.getSize().y/2.f);
+        // mWindow.draw(rect);
+
+        if(mCurrentWorld)
+        {
+            mCurrentWorld->Render(mWindow);
+        }
 
     }
 
     void Application::Tick(float delta_time)
     {
-        std::cout << "Ticking at Frane Rate: "<< 1.f/delta_time<< "\n";
+        LOG("Ticking at Frane Rate: ", 1.f/delta_time);
     }
 
 };
