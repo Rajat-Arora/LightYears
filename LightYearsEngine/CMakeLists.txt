@@ -3,7 +3,9 @@ include(${CMAKE_SOURCE_DIR}/cmake/CopyLibs.cmake)
 add_library(${LIGHT_YEARS_ENGINE_TARGET_NAME} STATIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Application.cpp
 
-
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Core.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Actor.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/World.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Object.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/EntryPoint.cpp
