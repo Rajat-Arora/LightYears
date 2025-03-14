@@ -8,6 +8,7 @@ add_library(${LIGHT_YEARS_ENGINE_TARGET_NAME} STATIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/World.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/Object.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/AssetManager.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/framework/MathUtility.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/src/EntryPoint.cpp
 )

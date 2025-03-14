@@ -2,7 +2,6 @@
 #include "framework/Object.h"
 #include <SFML/Graphics.hpp>
 #include "framework/Core.h"
-#include "framework/AssetManager.h"
 
 namespace ly
 {
@@ -19,6 +18,8 @@ namespace ly
         sf::Sprite mSprite;
         shared<sf::Texture> mTexture;
 
+        void CenterPivot();
+
     public:
         Actor(World* owningWorld, const std::string& texturePath = "");
         void BeginPlayInternal();
@@ -28,6 +29,16 @@ namespace ly
         virtual ~Actor();
         void SetTexture(const std::string& texturePath);
         void Render(sf::RenderWindow& window);
+
+        void SetActorLocation(const sf::Vector2f& newLoc);
+        void SetActorRotation(float newRot);
+        void AddActorLocationOffset(const sf::Vector2f& offsetAmt);
+        void AddActorRotationOffset(float offsetAmt);
+        sf::Vector2f GetActorLocation() const;
+        float GetActorRotation() const;
+        sf::Vector2f GetActorForwardDirection() const;
+        sf::Vector2f GetActorRightDirection() const;
+        
     };
     
     

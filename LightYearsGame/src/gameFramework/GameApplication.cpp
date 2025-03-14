@@ -17,6 +17,8 @@ namespace ly
         newWorld.lock()->SpawnActor<Actor>();
         mActorToDestroy = newWorld.lock()->SpawnActor<Actor>();
         mActorToDestroy.lock()->SetTexture(GetResourceDir() + "SpaceShooterRedux/PNG/playerShip1_blue.png");
+        mActorToDestroy.lock()->SetActorLocation(sf::Vector2f(300.f, 490.f));
+        mActorToDestroy.lock()->SetActorRotation(180.f);
         counter = 0;
     }
 
