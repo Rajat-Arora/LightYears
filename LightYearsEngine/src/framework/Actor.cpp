@@ -10,7 +10,7 @@ namespace ly
       mSprite{},
       mTexture{}
     {
-        // SetTexture(texturePath);
+        SetTexture(texturePath);
     }
 
     Actor::~Actor()
@@ -59,7 +59,6 @@ namespace ly
         mSprite.setTextureRect(sf::IntRect{sf::Vector2i{}, sf::Vector2i{textureWidth, textureHeight}});
         CenterPivot();
     }
-
 
     void Actor::Render(sf::RenderWindow& window)
     {

@@ -9,6 +9,7 @@ namespace ly
     private:
         static unique<AssetManager> mAssetManager;
         Dictionary<std::string, shared<sf::Texture>> mLoadedTextureMap;
+        std::string mRootDirectory;
     protected:
         AssetManager(/* args */);
     
@@ -17,6 +18,7 @@ namespace ly
         ~AssetManager();
         shared<sf::Texture> LoadTexture(const std::string& path);
         void CleanCycle();
+        void SetAssetRootDirectoryPath(const std::string& directory);
     };
     
 
