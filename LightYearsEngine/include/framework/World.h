@@ -25,6 +25,8 @@ namespace ly
             return newActor;
         }
 
+        sf::Vector2u GetWindowSize();
+
     private:
         shared<Application> mOwningApp;
         bool mBeganPlay;

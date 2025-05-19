@@ -2,6 +2,7 @@
 #include "framework/Application.h"
 #include "framework/Actor.h"
 
+
 ly::World::World(Application* owingApp):
     mOwningApp{owingApp},
     mBeganPlay{false},
@@ -15,6 +16,8 @@ ly::World::~World()
 {
 
 }
+
+sf::Vector2u ly::World::GetWindowSize() { return mOwningApp->GetWindowize(); }
 
 void ly::World::BeginPlay()
 {

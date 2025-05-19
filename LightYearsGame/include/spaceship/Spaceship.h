@@ -14,6 +14,8 @@ namespace ly
         void SetVelocity(const sf::Vector2f& newVel);
         sf::Vector2f GetVelocity() const;
 
+        virtual void Shoot() {};
+
         // ~Spaceshi?p();
     };
     

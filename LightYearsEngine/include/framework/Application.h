@@ -19,6 +19,8 @@ namespace ly
             return newWorld;
         }
 
+        sf::Vector2u GetWindowize();
+
     private:
 
         void TickInternal(float delta_time);

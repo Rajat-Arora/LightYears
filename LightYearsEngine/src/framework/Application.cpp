@@ -15,6 +15,11 @@ namespace ly
 
     }
 
+    sf::Vector2u Application::GetWindowize()
+    {
+        return mWindow.getSize();
+    }
+    
     void Application::Run()
     {
         mTickClock.restart();

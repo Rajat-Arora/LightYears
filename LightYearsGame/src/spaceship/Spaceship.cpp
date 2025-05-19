@@ -23,4 +23,7 @@ namespace ly
     {
         return mVelocity;
     }
+
+    void Shoot() {}
+
 } // namespace ly
